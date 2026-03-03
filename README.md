@@ -26,11 +26,11 @@ ORBIT is built using a microservices architecture. The codebase is split across 
 
 | Module | Repository Link | Stack | Description |
 |--------|----------------|-------|-------------|
-| **🖥️ Frontend App** | [Srikarsanka/orbit](https://github.com/Srikarsanka/orbit) | Angular, Tailwind | The client-facing Web UI for students and faculty |
-| **⚙️ Node Backend** | [Srikarsanka/orbitbackend](https://github.com/Srikarsanka/orbitbackend) | Node.js, Express, Mongo | Core API, Video Call Signaling, WebRTC endpoints |
-| **🧠 Python AI & Exec** | [Srikarsanka/pythonfacerecognizationorbit](https://github.com/Srikarsanka/pythonfacerecognizationorbit) | Python, FastAPI | Face Recognition biometric logins & Code Compilation |
-| **🗣️ Voice Translator** | [Srikarsanka/orbittranslate](https://github.com/Srikarsanka/orbittranslate) | Python, Whisper, FFmpeg | AI Audio extraction and Multi-language Translation |
-| **🌐 Root (This Repo)** | [Srikarsanka/orbitai](https://github.com/Srikarsanka/orbitai) | Markdown, Configs | Master repository connecting global architecture docs |
+| **[FRONTEND] App** | [Srikarsanka/orbit](https://github.com/Srikarsanka/orbit) | Angular, Tailwind | The client-facing Web UI for students and faculty |
+| **[BACKEND] Core** | [Srikarsanka/orbitbackend](https://github.com/Srikarsanka/orbitbackend) | Node.js, Express, Mongo | Core API, Video Call Signaling, WebRTC endpoints |
+| **[AI] Face & Exec** | [Srikarsanka/pythonfacerecognizationorbit](https://github.com/Srikarsanka/pythonfacerecognizationorbit) | Python, FastAPI | Face Recognition biometric logins & Code Compilation |
+| **[AI] Translator** | [Srikarsanka/orbittranslate](https://github.com/Srikarsanka/orbittranslate) | Python, Whisper, FFmpeg | AI Audio extraction and Multi-language Translation |
+| **[ROOT] System** | [Srikarsanka/orbitai](https://github.com/Srikarsanka/orbitai) | Markdown, Configs | Master repository connecting global architecture docs |
 
 ---
 
@@ -40,11 +40,11 @@ At a high level, ORBIT connects users to a central Node.js gateway that handles 
 
 ```mermaid
 graph LR
-    User[👩‍💻 User Browser] <-->|Traffic| Gateway[🟢 Node.js Backend Gateway]
+    User[User Browser] <-->|Traffic| Gateway[Node.js Backend Gateway]
     
-    Gateway -->|Database| DB[(🗄️ MongoDB)]
-    Gateway -->|Biometrics / Code| AI1[🧠 Python AI Service]
-    Gateway -->|Video Translation| AI2[🗣️ Whisper Translator Service]
+    Gateway -->|Database| DB[(MongoDB)]
+    Gateway -->|Biometrics / Code| AI1[Python AI Service]
+    Gateway -->|Video Translation| AI2[Whisper Translator Service]
     
     style Gateway fill:#339933,color:#fff,stroke:#166534
     style AI1 fill:#3776ab,color:#fff,stroke:#1f4c7a
@@ -58,33 +58,33 @@ graph LR
 ```mermaid
 graph TD
     subgraph Frontend Application
-        UI[📱 Angular 18 Single Page App]
-        VPlayer[▶️ Static Video & Transcript Player]
+        UI[Angular 18 Single Page App]
+        VPlayer[Static Video & Transcript Player]
     end
 
     subgraph Node.js Core Backend
-        API[⚡ Express REST API]
-        Socket[🔌 Socket.io Signaling Server]
-        Auth[🔐 JWT Authentication]
-        WBO[🎨 Whiteboard Integration]
+        API[Express REST API]
+        Socket[Socket.io Signaling Server]
+        Auth[JWT Authentication]
+        WBO[Whiteboard Integration]
     end
     
     subgraph Real-Time Communication
-        PeerJS[📞 PeerJS WebRTC Server]
-        Media[(📹 Browser Media Streams)]
+        PeerJS[PeerJS WebRTC Server]
+        Media[(Browser Media Streams)]
     end
 
     subgraph AI Microservice 1: Face & Code
-        FastAPI_1[🚀 FastAPI Engine]
-        InsightFace[👤 InsightFace buffalo_l]
-        Exec[💻 Multi-lang Code Compiler]
+        FastAPI_1[FastAPI Engine]
+        InsightFace[InsightFace buffalo_l]
+        Exec[Multi-lang Code Compiler]
     end
 
     subgraph AI Microservice 2: Voice Translation
-        FastAPI_2[🚀 FastAPI Engine]
-        FFmpeg[🎥 Video/Audio Extractor]
-        Whisper[🤖 OpenAI Whisper Base]
-        GTTS[🔊 Google Text-to-Speech]
+        FastAPI_2[FastAPI Engine]
+        FFmpeg[Video/Audio Extractor]
+        Whisper[OpenAI Whisper Base]
+        GTTS[Google Text-to-Speech]
     end
 
     %% Connections
