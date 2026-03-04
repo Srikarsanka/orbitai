@@ -46,17 +46,17 @@ Imagine a busy restaurant. The customer (Frontend) gives their order to the wait
 
 ### Authentication Service
 
-> **What the service does**
-Validates user credentials and issues secure, stateless session tokens.
+<kbd>What the service does</kbd> Validates user credentials and issues secure, stateless session tokens.
 
-> **How requests reach the service**
-The frontend submits an HTTP POST request containing email and password payloads to the Node.js gateway.
 
-> **How the service processes the request internally**
-The gateway queries MongoDB for the user record, verifies the provided password against a stored bcrypt hash, and generates a JSON Web Token (JWT) signed with a cryptographic secret key.
+<kbd>How requests reach the service</kbd> The frontend submits an HTTP POST request containing email and password payloads to the Node.js gateway.
 
-> **How the service communicates with other services**
-It operates entirely within the Node.js gateway and the database, returning the JWT directly to the requesting client.
+
+<kbd>How the service processes the request internally</kbd> The gateway queries MongoDB for the user record, verifies the provided password against a stored bcrypt hash, and generates a JSON Web Token (JWT) signed with a cryptographic secret key.
+
+
+<kbd>How the service communicates with other services</kbd> It operates entirely within the Node.js gateway and the database, returning the JWT directly to the requesting client.
+
 
 > [!IMPORTANT]
 > **Technical Explanation**
@@ -68,17 +68,17 @@ It operates entirely within the Node.js gateway and the database, returning the 
 
 ### Real Time Signaling Service
 
-> **What the service does**
-Facilitates the initial connection handshake between browsers to establish direct video calls.
+<kbd>What the service does</kbd> Facilitates the initial connection handshake between browsers to establish direct video calls.
 
-> **How requests reach the service**
-Clients connect via WebSockets directly to the Node.js server using the PeerJS library.
 
-> **How the service processes the request internally**
-The service holds WebSocket connections in memory and routes specific connection metadata between two precise clients attempting to establish a call.
+<kbd>How requests reach the service</kbd> Clients connect via WebSockets directly to the Node.js server using the PeerJS library.
 
-> **How the service communicates with other services**
-It acts strictly as an intermediary message broker between two frontend client applications.
+
+<kbd>How the service processes the request internally</kbd> The service holds WebSocket connections in memory and routes specific connection metadata between two precise clients attempting to establish a call.
+
+
+<kbd>How the service communicates with other services</kbd> It acts strictly as an intermediary message broker between two frontend client applications.
+
 
 > [!IMPORTANT]
 > **Technical Explanation**
@@ -90,17 +90,17 @@ It acts strictly as an intermediary message broker between two frontend client a
 
 ### Face Recognition Microservice
 
-> **What the service does**
-Verifies a student's physical identity strictly from a live webcam frame.
+<kbd>What the service does</kbd> Verifies a student's physical identity strictly from a live webcam frame.
 
-> **How requests reach the service**
-The Node.js server acts as a proxy, forwarding a base64 encoded image to the Python FastAPI endpoint via an internal HTTP request.
 
-> **How the service processes the request internally**
-The microservice decodes the image, runs the InsightFace model to detect a face, extracts a mathematical vector representation, and computes a similarity score against stored vectors.
+<kbd>How requests reach the service</kbd> The Node.js server acts as a proxy, forwarding a base64 encoded image to the Python FastAPI endpoint via an internal HTTP request.
 
-> **How the service communicates with other services**
-It returns a structured JSON response containing a boolean verification result back to the Node.js server.
+
+<kbd>How the service processes the request internally</kbd> The microservice decodes the image, runs the InsightFace model to detect a face, extracts a mathematical vector representation, and computes a similarity score against stored vectors.
+
+
+<kbd>How the service communicates with other services</kbd> It returns a structured JSON response containing a boolean verification result back to the Node.js server.
+
 
 > [!IMPORTANT]
 > **Technical Explanation**
@@ -112,17 +112,17 @@ It returns a structured JSON response containing a boolean verification result b
 
 ### Speech Processing Microservice
 
-> **What the service does**
-Converts recorded educational video audio into highly accurate, multi-language text transcripts.
+<kbd>What the service does</kbd> Converts recorded educational video audio into highly accurate, multi-language text transcripts.
 
-> **How requests reach the service**
-The Node.js gateway sends the URL of a saved video file to the FastAPI endpoint via HTTP POST.
 
-> **How the service processes the request internally**
-The service utilizes FFmpeg to extract and format the audio track, processes it through the Whisper AI model to generate English text, and utilizes translation APIs for specific target languages.
+<kbd>How requests reach the service</kbd> The Node.js gateway sends the URL of a saved video file to the FastAPI endpoint via HTTP POST.
 
-> **How the service communicates with other services**
-It returns a JSON array of transcript segments mapped to specific timecodes back to Node.js for database storage.
+
+<kbd>How the service processes the request internally</kbd> The service utilizes FFmpeg to extract and format the audio track, processes it through the Whisper AI model to generate English text, and utilizes translation APIs for specific target languages.
+
+
+<kbd>How the service communicates with other services</kbd> It returns a JSON array of transcript segments mapped to specific timecodes back to Node.js for database storage.
+
 
 > [!IMPORTANT]
 > **Technical Explanation**
@@ -134,17 +134,17 @@ It returns a JSON array of transcript segments mapped to specific timecodes back
 
 ### Chat Messaging Service
 
-> **What the service does**
-Delivers text messages instantly to all participants currently within a live class session.
+<kbd>What the service does</kbd> Delivers text messages instantly to all participants currently within a live class session.
 
-> **How requests reach the service**
-Messages are emitted from the browser client to the Node.js server over an active Socket.io WebSocket connection.
 
-> **How the service processes the request internally**
-Socket.io identifies the specific virtual room corresponding to the class ID and broadcasts the payload strictly to all other connected sockets inside that room.
+<kbd>How requests reach the service</kbd> Messages are emitted from the browser client to the Node.js server over an active Socket.io WebSocket connection.
 
-> **How the service communicates with other services**
-It communicates asynchronously with MongoDB to persist the message history while forwarding the live data to clients.
+
+<kbd>How the service processes the request internally</kbd> Socket.io identifies the specific virtual room corresponding to the class ID and broadcasts the payload strictly to all other connected sockets inside that room.
+
+
+<kbd>How the service communicates with other services</kbd> It communicates asynchronously with MongoDB to persist the message history while forwarding the live data to clients.
+
 
 > [!IMPORTANT]
 > **Technical Explanation**
@@ -156,17 +156,17 @@ It communicates asynchronously with MongoDB to persist the message history while
 
 ### Video Communication Service
 
-> **What the service does**
-Handles the high-bandwidth transmission of live webcam and microphone data.
+<kbd>What the service does</kbd> Handles the high-bandwidth transmission of live webcam and microphone data.
 
-> **How requests reach the service**
-The stream is initiated by the browser hardware API and routed via the PeerJS connection instance.
 
-> **How the service processes the request internally**
-It is handled entirely by the browser's internal WebRTC engine, which encodes the media and adjusts resolution and bitrate dynamically based on current network constraints.
+<kbd>How requests reach the service</kbd> The stream is initiated by the browser hardware API and routed via the PeerJS connection instance.
 
-> **How the service communicates with other services**
-It communicates directly with other peer browsers across the internet, actively bypassing the Node.js backend servers.
+
+<kbd>How the service processes the request internally</kbd> It is handled entirely by the browser's internal WebRTC engine, which encodes the media and adjusts resolution and bitrate dynamically based on current network constraints.
+
+
+<kbd>How the service communicates with other services</kbd> It communicates directly with other peer browsers across the internet, actively bypassing the Node.js backend servers.
+
 
 > [!IMPORTANT]
 > **Technical Explanation**
