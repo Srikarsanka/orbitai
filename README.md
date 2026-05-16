@@ -28,7 +28,7 @@ ORBIT is built using a microservices architecture. The codebase is split across 
 |--------|----------------|-------|-------------|
 | **[FRONTEND] App** | [Srikarsanka/orbit](https://github.com/Srikarsanka/orbit) | Angular, Tailwind | The client-facing Web UI for students and faculty |
 | **[BACKEND] Core** | [Srikarsanka/orbitbackend](https://github.com/Srikarsanka/orbitbackend) | Node.js, Express, Mongo | Core API, Video Call Signaling, WebRTC endpoints |
-| **[AI] Face & Exec** | [Srikarsanka/pythonfacerecognizationorbit](https://github.com/Srikarsanka/pythonfacerecognizationorbit) | Python, FastAPI | Face Recognition biometric logins & Code Compilation |
+| **[AI] Face & Exec** | [Srikarsanka/pythonfacerecgroinzationorbit](https://github.com/Srikarsanka/pythonfacerecgroinzationorbit) | Python, FastAPI | Face Recognition biometric logins & Code Compilation |
 | **[AI] Translator** | [Srikarsanka/orbittranslate](https://github.com/Srikarsanka/orbittranslate) | Python, Whisper, FFmpeg | AI Audio extraction and Multi-language Translation |
 | **[ROOT] System** | [Srikarsanka/orbitai](https://github.com/Srikarsanka/orbitai) | Markdown, Configs | Master repository connecting global architecture docs |
 
@@ -175,7 +175,7 @@ Since the system is decoupled, clone them into a central `ORBIT` folder:
 mkdir ORBIT && cd ORBIT
 git clone https://github.com/Srikarsanka/orbit.git frontend
 git clone https://github.com/Srikarsanka/orbitbackend.git backend
-git clone https://github.com/Srikarsanka/pythonfacerecognizationorbit.git backend/python
+git clone https://github.com/Srikarsanka/pythonfacerecgroinzationorbit.git backend/python
 git clone https://github.com/Srikarsanka/orbittranslate.git backend/voice_translation
 ```
 
