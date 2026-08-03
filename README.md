@@ -2,7 +2,6 @@
 
 # 🚀 ORBIT AI
 ### The Next-Generation Intelligent Educational Platform
-
 <p>
   <img src="https://img.shields.io/badge/Angular-18.x-DD0031?style=for-the-badge&logo=angular&logoColor=white" />
   <img src="https://img.shields.io/badge/Node.js-18.x-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" />
